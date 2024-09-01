@@ -12,8 +12,17 @@ import Title from '@currency/components/Title/Title';
 import Text from '@currency/components/Text/Text';
 import {IconImage, OnboardingImage} from '@currency/components/Images';
 import {ChevRonRight} from '@currency/components/Images/Svgs';
+import {StackNavigationProp} from '@react-navigation/stack';
+import {RootStackParamList} from '@currency/navigations/types';
 
-export default function Onboarding() {
+export default function Onboarding({
+  navigation,
+}: {
+  navigation: StackNavigationProp<RootStackParamList, 'Onboarding'>;
+}) {
+  const gotoConverter = () => {
+    navigation.navigate('Converter');
+  };
   return (
     <ImageBackground
       resizeMode="cover"
@@ -28,7 +37,9 @@ export default function Onboarding() {
           real-time exchange rates.Get started now and simplify your global
           transactions!
         </Text>
-        <TouchableOpacity style={OnboardingStyles.button}>
+        <TouchableOpacity
+          onPress={gotoConverter}
+          style={OnboardingStyles.button}>
           <ChevRonRight />
         </TouchableOpacity>
       </View>
