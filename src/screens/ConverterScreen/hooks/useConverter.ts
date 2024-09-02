@@ -27,7 +27,7 @@ const useConverter = () => {
         `${data.conversion_rates[`${convertedAmountCurrency}`]}`,
       );
     }
-  }, [data]);
+  }, [data, convertedAmountCurrency, amountCurrency]);
 
   const handleInitialAmount = (val: string) => setInitialAmount(val);
   const handleCurrentAmount = (val: string) => setCurrentAmount(val);
