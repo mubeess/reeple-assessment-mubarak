@@ -55,6 +55,19 @@ export const ConverterStyles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
+  error: {
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  disclaimerContainer: {
+    gap: 25,
+  },
+  disclaimerText: {
+    fontWeight: '600',
+    fontSize: 15,
+    textAlign: 'justify',
+    marginTop: 20,
+  },
 });
 
 export const CountryAmountStyles = StyleSheet.create({

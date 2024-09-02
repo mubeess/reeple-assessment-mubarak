@@ -12,16 +12,14 @@ import Title from '@currency/components/Title/Title';
 import Text from '@currency/components/Text/Text';
 import {IconImage, OnboardingImage} from '@currency/components/Images';
 import {ChevRonRight} from '@currency/components/Images/Svgs';
-import {StackNavigationProp} from '@react-navigation/stack';
-import {RootStackParamList} from '@currency/navigations/types';
 
-export default function Onboarding({
-  navigation,
-}: {
-  navigation: StackNavigationProp<RootStackParamList, 'Onboarding'>;
-}) {
+import {useDispatch} from 'react-redux';
+import {onboardUser} from '@currency/redux/slices/userSlice';
+
+export default function Onboarding() {
+  const dispatch = useDispatch();
   const gotoConverter = () => {
-    navigation.navigate('Converter');
+    dispatch(onboardUser());
   };
   return (
     <ImageBackground
