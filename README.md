@@ -1,8 +1,20 @@
-# Welcome to ReepleCurrency!
+# Welcome to ReepleCurrency! :currency_exchange:
 
-Thank you for choosing ReepleCurrency, your reliable currency converter app! This tool is designed to provide real-time exchange rates to help you convert currencies effortlessly. Whether you're traveling, shopping online, or managing finances across borders, ReepleCurrency makes currency conversion straightforward and accurate.
+ReepleCurrency is your go-to app for converting currencies with live rates for more than 10 different currencies. Whether you're traveling or dealing with international transactions, ReepleCurrency makes it easy to get the latest exchange rates. 
 
-[**Download the APK here**](https://drive.google.com/file/d/1YCK9VMBHJv-XESjMdMBsussJXoI1YjpI/view?usp=drive_link) and start converting currencies right away!
+We've implemented key functionalities such as:
+- **Real-time currency conversion** for more than 10 countries.
+- **Easy-to-use interface** for quick and accurate conversions.
+
+## APK Download
+
+You can download the APK for ReepleCurrency using the following link:
+[Download ReepleCurrency APK](https://drive.google.com/file/d/1YCK9VMBHJv-XESjMdMBsussJXoI1YjpI/view?usp=drive_link)
+
+## Video Walkthrough
+
+Watch this video walkthrough to see how ReepleCurrency works:
+[ReepleCurrency Walkthrough](https://vimeo.com/1005332171?share=copy)
 
 ## Getting Started
 
