@@ -38,7 +38,11 @@ export default function CountryAmount({
       }
 
       const newAmount = numericVal / initialAmountNumber;
-      changeCounterAmount(`${newAmount.toFixed(2)}`);
+      const formattedNewAmount = newAmount.toLocaleString(undefined, {
+        minimumFractionDigits: 2,
+        maximumFractionDigits: 2,
+      });
+      changeCounterAmount(formattedNewAmount);
     } else if (initialAmont) {
       const initialAmountNumber = Number(initialAmont);
 
@@ -48,8 +52,15 @@ export default function CountryAmount({
       }
 
       const convertedAmount = numericVal * initialAmountNumber;
+      const formattedConvertedAmount = convertedAmount.toLocaleString(
+        undefined,
+        {
+          minimumFractionDigits: 2,
+          maximumFractionDigits: 2,
+        },
+      );
 
-      changeCounterAmount(`${convertedAmount.toFixed(2)}`);
+      changeCounterAmount(formattedConvertedAmount);
     }
   };
   return (
