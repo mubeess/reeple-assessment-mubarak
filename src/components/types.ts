@@ -10,3 +10,9 @@ export type TextProps = {
   numberOfLines?: number;
   color?: string;
 };
+
+export type SkeletonLoaderProps = {
+  width: number | string;
+  height: number;
+  borderRadius: number;
+};

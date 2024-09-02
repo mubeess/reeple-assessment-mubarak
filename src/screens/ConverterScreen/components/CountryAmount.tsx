@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {View, TextInput, TouchableOpacity} from 'react-native';
 import CountryPicker from 'react-native-country-picker-modal';
 
@@ -10,15 +10,47 @@ import {ConverterAmountType} from '../types';
 
 export default function CountryAmount({
   amount,
-  currency,
   changeAmount,
   changeCurrency,
+  changeCounterAmount,
+  isConverted,
+  initialAmont,
+  code,
+  changeCode,
 }: ConverterAmountType) {
-  const [value, setValue] = useState(`${amount}`);
-
   const handleChange = (val: string) => {
-    setValue(val);
-    changeAmount(Number(val.replaceAll(/[ ,\-]/g, '')));
+    const sanitizedVal = val.replaceAll(/[ ,\-]/g, '');
+    const numericVal = Number(sanitizedVal);
+
+    // If the sanitized value is not a number, skip further processing
+    if (isNaN(numericVal)) {
+      return;
+    }
+
+    changeAmount(sanitizedVal);
+
+    if (isConverted) {
+      const initialAmountNumber = Number(initialAmont);
+
+      // Ensure initialAmont is a valid number
+      if (isNaN(initialAmountNumber)) {
+        return;
+      }
+
+      const newAmount = numericVal / initialAmountNumber;
+      changeCounterAmount(`${newAmount.toFixed(2)}`);
+    } else if (initialAmont) {
+      const initialAmountNumber = Number(initialAmont);
+
+      // Ensure initialAmont is a valid number
+      if (isNaN(initialAmountNumber)) {
+        return;
+      }
+
+      const convertedAmount = numericVal * initialAmountNumber;
+
+      changeCounterAmount(`${convertedAmount.toFixed(2)}`);
+    }
   };
   return (
     <View style={CountryAmountStyles.container}>
@@ -28,10 +60,11 @@ export default function CountryAmount({
         <CountryPicker
           withCurrencyButton
           onSelect={data => {
-            changeCurrency(data.cca2);
+            changeCode(data.cca2);
+            changeCurrency(data.currency[0]);
           }}
           countryCodes={CountryCodes}
-          countryCode={currency}
+          countryCode={code}
           withCurrency
         />
 
@@ -41,7 +74,7 @@ export default function CountryAmount({
       <View style={CountryAmountStyles.inputContainer}>
         <TextInput
           onChangeText={handleChange}
-          value={value}
+          value={amount}
           keyboardType="numeric"
           style={CountryAmountStyles.input}
         />
